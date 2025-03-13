@@ -446,7 +446,6 @@ async def explore_page(url_info: tuple, equiv_classes_lock: Lock, eq_class_lock:
                     await close_resources(cdpSession, page, context)
                     continue  # hopefully no issues with this
 
-                # input('what the fuck')
 
                 await wait_for_load(page, load_time_ms=2000)
 
@@ -658,7 +657,7 @@ async def worker(thread_id: str, idle_flags: dict, url_queue: Queue, equiv_class
 
             await asyncio.sleep(4)
 
-        print(f"worker Thread-{thread_id} fucking off")
+        print(f"worker Thread-{thread_id} dying")
         await browser.close()
 
 async def explore(starting_url: str, cookies: Optional[dict] = None, headless: bool = False, output_dir: str = 'dominos_dep', root: str = "", num_threads: int = 10, resume: bool = False):
